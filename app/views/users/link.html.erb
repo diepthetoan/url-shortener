@@ -1,5 +1,5 @@
 <h3>Update Link</h3>
 <%= form_for :link, url: {action: :update_link} do |form| %>
-  <%= form.text_field :original_url, placeholder: "original_url" %>
+  <%= form.text_field :original_url, placeholder: "original_url", value: @link.original_url %>
   <%= form.submit %>
 <% end %>

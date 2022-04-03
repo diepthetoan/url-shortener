@@ -15,7 +15,7 @@ class UsersController < ActionController::Base
     @link = Link.find(params[:link_id])
     @link.update(original_url: link_params[:original_url])
 
-    redirect_to user_link_path(@link)
+    redirect_to links_user_path(id: params[:user_id])
   end
 
   def delete_link
@@ -26,7 +26,7 @@ class UsersController < ActionController::Base
   end
 
   def link
-    @link
+    @link = Link.find(params[:link_id])
   end
 
   private

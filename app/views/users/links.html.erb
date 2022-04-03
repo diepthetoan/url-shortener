@@ -8,10 +8,10 @@
   </tr>
   <% @links.each do |link| %>
     <tr>
-      <td><%= link.id %></td>
+      <td><%= button_to link.id , user_link_path(link_id: link.id, user_id: link.user_id), method: 'get' %></td>
       <td><%= link.original_url %></td>
       <td><%= link.clicked_times %></td>
-      <td><%= link.slug %></td>
+      <td><a href="http://localhost:3000/short/<%= link.slug %>" target='_blank'>localhost:3000/short/<%= link.slug %></a></td>
       <td><%= button_to 'Remove', delete_link_user_path(link_id: link.id), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
