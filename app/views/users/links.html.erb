@@ -1,0 +1,24 @@
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Original Url</th>
+    <th>Clicked</th>
+    <th>Slug</th>
+    <th>Delete Link Action</th>
+  </tr>
+  <% @links.each do |link| %>
+    <tr>
+      <td><%= link.id %></td>
+      <td><%= link.original_url %></td>
+      <td><%= link.clicked_times %></td>
+      <td><%= link.slug %></td>
+      <td><%= button_to 'Remove', delete_link_user_path(link_id: link.id), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h3>Create a Link</h3>
+<%= form_for :link, url: {action: :create_link} do |form| %>
+  <%= form.text_field :original_url, placeholder: "original_url" %>
+  <%= form.submit %>
+<% end %>
